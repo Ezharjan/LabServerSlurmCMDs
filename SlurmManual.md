@@ -410,3 +410,10 @@ seff <jobid>                           # Post-mortem efficiency
 - Right-size memory with `seff` after a successful run; over-requesting `--mem` slows scheduling.
 - Checkpoint long jobs every N steps so a node failure isn't catastrophic.
 - Prefer `--gres=gpu:1` over pinning to a specific model unless your code truly needs it — wider scheduling pool, faster start.
+
+--- 
+
+## Get the maximum time allowed for each GPUs on the cluster:
+```
+sinfo -p gpu -N -o "%15N %25G %25f %15l"
+```
