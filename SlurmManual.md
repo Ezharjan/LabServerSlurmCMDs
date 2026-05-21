@@ -413,7 +413,9 @@ seff <jobid>                           # Post-mortem efficiency
 
 --- 
 
-## Get the maximum time allowed for each GPUs on the cluster:
+## 13. Get the maximum time allowed for each GPUs on the cluster:
+
+Get the availability and the GPU information through:
 ```
-sinfo -p gpu -N -o "%15N %25G %25f %15l"
+sinfo -p gpu -N -o "%15N %25G %25f %15l %15T"
 ```
