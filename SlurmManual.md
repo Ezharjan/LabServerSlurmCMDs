@@ -419,3 +419,34 @@ Get the availability and the GPU information through:
 ```
 sinfo -p gpu -N -o "%15N %25G %25f %15l %15T"
 ```
+
+
+
+## 14. Run Ollama on cluster:
+```
+srun --partition=gpu --gres=gpu:a100:1 --mem=80G --time=04:00:00 --pty bash
+
+module avail singularity
+module load singularity
+
+apptainer --version
+# OR
+singularity --version
+
+# If using Apptainer
+apptainer pull ollama.sif docker://ollama/ollama:latest
+
+# If using Singularity
+singularity pull ollama.sif docker://ollama/ollama:latest
+
+
+
+
+export OLLAMA_MODELS="./ollama_models"
+apptainer exec ollama.sif ollama serve &
+
+
+apptainer exec ollama.sif ollama pull deepseek-r1:70b 
+
+apptainer exec --nv ollama.sif ollama run deepseek-r1:70b
+```
