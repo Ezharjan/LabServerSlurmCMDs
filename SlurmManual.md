@@ -450,3 +450,9 @@ apptainer exec ollama.sif ollama pull deepseek-r1:70b
 
 apptainer exec --nv ollama.sif ollama run deepseek-r1:70b
 ```
+
+
+## 15. Change line to make UNIX-compatible from revision on Windows:
+```
+sed -i 's/\r$//' xxx.sh
+```
