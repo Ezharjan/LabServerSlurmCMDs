@@ -456,3 +456,25 @@ apptainer exec --nv ollama.sif ollama run deepseek-r1:70b
 ```
 sed -i 's/\r$//' xxx.sh
 ```
+
+
+## 16. Ask Slurm to print a table specifically focused on GPU usage across all nodes:
+```
+sinfo -p gpu --Format=NodeHost:15,StateCompact:10,Gres:25,GresUsed:25
+```
+
+<br>
+<br>
+<br>
+
+---
+
+## Most Commonly Used Commands to Get Slurm Information:
+```
+sinfo -p gpu -t idle -o "%N %G"
+sinfo -o "%P %l"
+sinfo -p gpu -o "%N %G %t"
+sinfo -p gpu -N -o "%15N %25G %25f %15l %15T"
+sinfo -p gpu --Format=NodeHost:15,StateCompact:10,Gres:25,GresUsed:25
+sinfo
+```
